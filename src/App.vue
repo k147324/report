@@ -3,7 +3,7 @@
   <div class="container">
     <AddTransaction @transactionSubmitted="handleTransactionSumbmitted" />
     <Balance :total="+total" />
-    <IncomeExpense :income="income" :expense="expense" />
+    <IncomeExpense :income="+income" :expense="-expense" />
     <TransactionList
       :transactions="transactions"
       @transactionDeleted="handleTransactionDelete"
