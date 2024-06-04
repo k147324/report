@@ -3,7 +3,7 @@
   <div class="container">
     <AddTransaction @transactionSubmitted="handleTransactionSumbmitted" />
     <Balance :total="+total" />
-    <IncomeExpense :income="+income" :expense="-expense" />
+    <IncomeExpense :income="+income" :expense="+expense" />
     <TransactionList
       :transactions="transactions"
       @transactionDeleted="handleTransactionDelete"
@@ -38,15 +38,15 @@ const expense = computed(() => {
   return transactions.value
     .filter((transaction) => transaction.amount < 0)
     .reduce((acc, transaction) => {
-      return Math.round(acc + transaction.amount;
-    }, 0));
+      return acc + transaction.amount;
+    }, 0).toFixed(2);
 });
 const income = computed(() => {
   return transactions.value
     .filter((transaction) => transaction.amount > 0)
     .reduce((acc, transaction) => {
-      return Math.round(acc + transaction.amount;
-    }, 0));
+      return acc + transaction.amount;
+    }, 0).toFixed(2);
 });
 
 const handleTransactionSumbmitted = (transactionData) => {
