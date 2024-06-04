@@ -11,7 +11,6 @@
     </div>
     <button class="btn">Add transaction</button>
   </form>
-  <button @click="getID(1)">test</button>
 </template>
 
 <script setup>
