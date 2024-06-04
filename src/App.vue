@@ -39,16 +39,14 @@ const expense = computed(() => {
     .filter((transaction) => transaction.amount < 0)
     .reduce((acc, transaction) => {
       return acc + transaction.amount;
-    }, 0)
-    .toFixed(2);
+    }, 0);
 });
 const income = computed(() => {
   return transactions.value
     .filter((transaction) => transaction.amount > 0)
     .reduce((acc, transaction) => {
       return acc + transaction.amount;
-    }, 0)
-    .toFixed(2);
+    }, 0);
 });
 
 const handleTransactionSumbmitted = (transactionData) => {
