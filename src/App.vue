@@ -25,7 +25,7 @@ import axios from "axios";
 let transactions = ref([]);
 onMounted(() => {
   axios
-    .get("http://127.0.0.1:80/products")
+    .get("http://44.195.182.83:3000/products")
     .then((response) => {
       transactions.value = response.data;
       console.log(transactions);
@@ -58,7 +58,7 @@ const handleTransactionSumbmitted = (transactionData) => {
     amount: transactionData.amount,
   });
   axios
-    .post("http://127.0.0.1/products", {
+    .post("http://44.195.182.83:3000/products", {
       id: transactions.value.at(-1).id,
       text: transactions.value.at(-1).text,
       amount: transactions.value.at(-1).amount,
@@ -74,7 +74,7 @@ const handleTransactionDelete = async (id) => {
   transactions.value = transactions.value.filter(
     (transaction) => transaction.id !== id
   );
-  const url = `http://127.0.0.1:80/products/${id}`;
+  const url = `http://44.195.182.83:3000/products/${id}`;
   console.log(url);
   axios
     .delete(url)
@@ -87,7 +87,7 @@ const handleTransactionDelete = async (id) => {
 };
 const getID = (id) => {
   axios
-    .get(`http://127.0.0.1:80/products/${id}`)
+    .get(`http://44.195.182.83:3000/products/${id}`)
     .then((res) => {
       console.log(res.data);
     })
