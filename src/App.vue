@@ -8,7 +8,7 @@
       :transactions="transactions"
       @transactionDeleted="handleTransactionDelete"
     />
-    <button @click="getID(1)">test</button>
+   
   </div>
   <div></div>
 </template>
