@@ -35,18 +35,18 @@ onMounted(() => {
     });
 });
 const expense = computed(() => {
-  return transactions.value
+  return parseInt(transactions.value
     .filter((transaction) => transaction.amount < 0)
     .reduce((acc, transaction) => {
       return acc + transaction.amount;
-    }, 0).toFixed(2);
+    }, 0)).toFixed(2);
 });
 const income = computed(() => {
-  return transactions.value
+  return parseInt(transactions.value
     .filter((transaction) => transaction.amount > 0)
     .reduce((acc, transaction) => {
       return acc + transaction.amount;
-    }, 0).toFixed(2);
+    }, 0)).toFixed(2);
 });
 
 const handleTransactionSumbmitted = (transactionData) => {
